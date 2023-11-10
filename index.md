@@ -8,4 +8,3 @@
 <a href="https://github.com/ibnaleem/Haskell-Simplified/blob/main/Introduction/00-Preface.md">
 <button align="center">Start Here</button>
 </a>
-</body>
