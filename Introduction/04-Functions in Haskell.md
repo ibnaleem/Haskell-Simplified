@@ -131,4 +131,4 @@ People from imperative languages often use parentheses for function application.
 
 > 💡 Once you have loaded your file, you can run each function by calling it, like `nextUp 10 5`
 
-[Solutions are posted here.]()
+[Solutions are posted here.](https://github.com/ibnaleem/Haskell-Simplified/blob/main/Introduction/Solutions/04-Solutions.md)
