@@ -1,16 +1,3 @@
-<head>
-    <style>
-        body {
-            display: flex;
-            text-align: "center";
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-    </style>
-</head>
-<body>
 <div id="title" align="center">
     <h1>Haskell-Simplified</h1>
     <p>An open-source curriculum for learning functional programming in Haskell. Dive into detailed chapters with hands-on exercises to reinforce theoretical knowledge. Showcase completed exercises in your portfolio for practical proof of your skills.</p>
