@@ -17,7 +17,7 @@ Contribute to our curriculum by:
 - Adding valuable resource links.
 - Developing new chapters with approval.
 
-\* See [LICENSE.md](https://github.com/ibnaleem/Haskell-Simplified/blob/main/LICENSE.md) for usage details.
+\* See [LICENSE.md]([https://github.com/ibnaleem/Haskell-Simplified/blob/main/LICENSE.md](https://github.com/ibnaleem/Haskell-Simplified/blob/main/LICENSE)) for usage details.
 
 ___
 Created by [Ibn Aleem](http://www.github.com/ibnaleem), inspired by [The Odin Project](https://theodinproject.com)
