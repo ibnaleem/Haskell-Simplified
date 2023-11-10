@@ -8,7 +8,7 @@ This repository contains the actual chapter files used on [our website](https://
 
 ## Contributing
 
-[Haskell-Simplified](https://ibnaleem.github.io/Haskell-Simplified) thrives on open-source contributions to enhance and expand. We invite contributors of all backgrounds and experience levels to help maintain this valuable curriculum. To contribute, carefully review our contributing guide.
+[Haskell-Simplified](https://ibnaleem.github.io/Haskell-Simplified) thrives on open-source contributions to enhance and expand. We invite contributors of all backgrounds and experience levels to help maintain this valuable curriculum. To contribute, carefully review our [contributing guide](https://github.com/ibnaleem/Haskell-Simplified/blob/main/CONTRIBUTING.md).
 
 Contribute to our curriculum by:
 - Rectifying typos and grammar errors.
