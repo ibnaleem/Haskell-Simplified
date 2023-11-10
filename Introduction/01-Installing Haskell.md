@@ -49,7 +49,7 @@ If your output matches above (except the version) then you have successfully ins
 ### Uninstallation
 For Linux users, run `ghcup nuke` and remove any ghcup added lines in your `~/.bashrc`.
 
-For Windows users, a `Uninstall Haskell.ps1` should be on your Desktop after installation. Right click > *Run with PowerShell* to uninstall Haskell.
+For Windows users, a `Uninstall Haskell.ps1` script should be downloaded on your Desktop after installation. `Right click > Run with PowerShell` to uninstall Haskell.
 
 ### VSCode Integration
 To begin, follow these steps for seamless integration with the Haskell Language Server (HLS):
