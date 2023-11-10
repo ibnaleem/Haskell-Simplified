@@ -62,3 +62,5 @@ To begin, follow these steps for seamless integration with the Haskell Language 
 
 ### Vim Integration
 See [ghcup.vim](https://github.com/hasufell/ghcup.vim). I'm a little jealous you know how to use Vim.
+
+Finally, we can begin [02-Loading Modules](https://github.com/ibnaleem/Haskell-Simplified/blob/main/Introduction/02-Loading%20Modules.md) in Haskell.

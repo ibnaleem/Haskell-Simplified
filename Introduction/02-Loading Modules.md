@@ -50,4 +50,4 @@ ghci> myVar
 ```
 `myVar` is a function because it returns a value, which in this case is just 1. 
 
-To understand this further, let's dive into [Intro to Haskell]().
+To understand this further, let's dive into [03-Intro to Haskell](https://github.com/ibnaleem/Haskell-Simplified/blob/main/Introduction/03-Intro%20to%20Haskell.md).
