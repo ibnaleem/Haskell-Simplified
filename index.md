@@ -5,7 +5,7 @@
 </div>
 <br>
 <br>
-<a href="/Introduction/00-Preface.md">
+<a href="/Haskell-Simplified/Introduction/00-Preface.md">
 <button align="center">Start Here</button>
 </a>
 </body>
