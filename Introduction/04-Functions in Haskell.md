@@ -129,8 +129,6 @@ People from imperative languages often use parentheses for function application.
 
 - Create a function called nextUp that takes 2 values, performs integral division, and finds the successor. For example, `nextUp 10 5` should yield 3.
 
-- Create a function allSum that takes the values of all the previous functions and adds them together.
+> 💡 Once you have loaded your file, you can run each function by calling it, like `nextUp 10 5`
 
 [Solutions are posted here.]()
-
-
