@@ -1,3 +1,6 @@
+<head>
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/" />
+</head>
 <div id="title" align="center">
     <h1>Haskell-Simplified</h1>
     <p>An open-source curriculum for learning functional programming in Haskell. Dive into detailed chapters with hands-on exercises to reinforce theoretical knowledge. Showcase completed exercises in your portfolio for practical proof of your skills.</p>
@@ -5,6 +8,6 @@
 </div>
 <br>
 <br>
-<a href="/Introduction/00-Preface.md">
+<a href="./Introduction/00-Preface.md">
 <button align="center">Start Here</button>
 </a>
