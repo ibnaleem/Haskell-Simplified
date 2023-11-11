@@ -63,3 +63,4 @@ doubleSmallNumber x = if x > 100
 The `if`, `then` and `else` keywords are all in-line. Don't worry, *many many many* Haskell devs make this mistake; sometimes re-reading code can help, but a minor indentation is always overlooked by us. You can use ChatGPT or other tools to help you fix your code indentation.
 
 To recap, the only unique feature Haskell brings to conditional statements is that they must have an `else` statement (formally known as an *expression* in Haskell) use a `then` keyword to evaluate the `if` expression, and the `if`, `then` and `else` keywords must be indented vertically.
+
