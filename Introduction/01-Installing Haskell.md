@@ -1,5 +1,5 @@
 <head>
-    <base href="https://ibnaleem.github.io/Haskell-Simplified/" />
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/Introduction/" />
 </head>
 
 # INSTALLING HASKELL
@@ -67,4 +67,4 @@ To begin, follow these steps for seamless integration with the Haskell Language 
 ### Vim Integration
 See [ghcup.vim](https://github.com/hasufell/ghcup.vim). I'm a little jealous you know how to use Vim.
 
-Finally, we can begin [02-Loading Modules](./02-Loading%20Modules.md) in Haskell.
+Finally, we can begin [02-Loading Modules](./02-Loading%20Modules) in Haskell.
