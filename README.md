@@ -21,3 +21,5 @@ Contribute to our curriculum by:
 
 ___
 Created by [Ibn Aleem](http://www.github.com/ibnaleem), inspired by [The Odin Project](https://theodinproject.com)
+
+<a href="https://www.buymeacoffee.com/ibnaleem" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
