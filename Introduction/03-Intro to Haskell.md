@@ -1,3 +1,7 @@
+<head>
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/" />
+</head>
+
 # INTRO TO HASKELL
 
 Let's begin! If you skipped the introduction, go back and check the last part; it tells you what you need for this tutorial and how we'll use functions. Now, open your terminal and type "ghci" to enter Haskell's interactive mode. You'll see something like this:
