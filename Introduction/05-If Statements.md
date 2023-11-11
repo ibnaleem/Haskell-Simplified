@@ -43,7 +43,7 @@ That's because Haskell isn't your English teacher, it does not like functions wi
 
 Back to if-statements, what if we wanted to code it on multiple lines like Python? Well, we can do this:
 
-```Haskell
+```haskell
 doubleSmallNumber x = if x > 100
                       then x
                       else x * 2
