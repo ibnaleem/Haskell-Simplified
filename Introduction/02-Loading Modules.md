@@ -1,3 +1,7 @@
+<head>
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/" />
+</head>
+
 # LOADING MODULES
 Now that Haskell has been successfully installed, we can create Haskell files and load them into the compiler (GHC).
 
