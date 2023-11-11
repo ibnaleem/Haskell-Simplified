@@ -1,5 +1,5 @@
 <head>
-    <base href="https://ibnaleem.github.io/Haskell-Simplified/" />
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/Introduction/" />
 </head>
 
 # INTRO TO HASKELL
@@ -95,4 +95,4 @@ ghci> 5 ++ "hello"
 ```
 We will discuss what distinguishes `+` from `++` and why you can concatenate different types with `++` and not `+` in the [Types]() chapter.
 
-For now, let's learn about [04-Functions in Haskell](/Introduction/04-Functions%20in%20Haskell).
+For now, let's learn about [04-Functions in Haskell](./04-Functions%20in%20Haskell).

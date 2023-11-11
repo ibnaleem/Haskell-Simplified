@@ -1,9 +1,9 @@
 <head>
-    <base href="https://ibnaleem.github.io/Haskell-Simplified/" />
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/Introduction/" />
 </head>
 
 # FUNCTIONS
-To recap, we learned in [02-Loading Modules](/Introduction/02-Loading%20Modules) that Haskell does not declare variables; instead, **it declares functions.**
+To recap, we learned in [02-Loading Modules](./02-Loading%20Modules) that Haskell does not declare variables; instead, **it declares functions.**
 
 ```
 ghci> myVar = 1
@@ -135,4 +135,4 @@ People from imperative languages often use parentheses for function application.
 
 > 💡 Once you have loaded your file, you can run each function by calling it, like `nextUp 10 5`
 
-[Solutions are posted here.](/Introduction/Solutions/04-Solutions)
+[Solutions are posted here.](./Solutions/04-Solutions)

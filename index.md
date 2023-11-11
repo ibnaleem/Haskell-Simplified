@@ -1,5 +1,5 @@
 <head>
-    <base href="https://ibnaleem.github.io/Haskell-Simplified/" />
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/Introduction/" />
 </head>
 
 <div id="title" align="center">
