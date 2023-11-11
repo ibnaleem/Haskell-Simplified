@@ -1,5 +1,5 @@
 <head>
-    <base href="https://ibnaleem.github.io/Haskell-Simplified/" />
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/Introduction/" />
 </head>
 
 # LOADING MODULES
@@ -54,4 +54,4 @@ ghci> myVar
 ```
 `myVar` is a function because it returns a value, which in this case is just 1. 
 
-To understand this further, let's dive into [03-Intro to Haskell](/Introduction/03-Intro%20to%20Haskell).
+To understand this further, let's dive into [03-Intro to Haskell](./03-Intro%20to%20Haskell).

@@ -1,3 +1,7 @@
+<head>
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/" />
+</head>
+
 # INSTALLING HASKELL
 
 Before we begin learning Haskell, let's start by installing it to interact with the compiler and how to load functions. The more you code, the easier and faster you'll pick up Haskell syntax.
@@ -63,4 +67,4 @@ To begin, follow these steps for seamless integration with the Haskell Language 
 ### Vim Integration
 See [ghcup.vim](https://github.com/hasufell/ghcup.vim). I'm a little jealous you know how to use Vim.
 
-Finally, we can begin [02-Loading Modules](https://github.com/ibnaleem/Haskell-Simplified/blob/main/Introduction/02-Loading%20Modules.md) in Haskell.
+Finally, we can begin [02-Loading Modules](./02-Loading%20Modules.md) in Haskell.
