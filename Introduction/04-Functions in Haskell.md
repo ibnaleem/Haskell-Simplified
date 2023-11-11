@@ -135,4 +135,4 @@ People from imperative languages often use parentheses for function application.
 
 > 💡 Once you have loaded your file, you can run each function by calling it, like `nextUp 10 5`
 
-[Solutions are posted here.](./Solutions/04-Solutions)
+[Solutions are posted here.](./Solutions/04-Solutions) Verify and continue to [05-If Statements](./05-If%20Statements)
