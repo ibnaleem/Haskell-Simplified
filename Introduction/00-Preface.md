@@ -1,3 +1,7 @@
+<head>
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/" />
+</head>
+
 # PREFACE
 
 _Feel free to skip my preface that outlines the motivation and inspiration for creating Haskell-Simplified._ Go to *[Installing Haskell](https://github.com/ibnaleem/Haskell-Simplified/blob/main/Introduction/01-Installing%20Haskell.md)*.
