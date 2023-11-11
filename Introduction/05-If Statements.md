@@ -64,3 +64,4 @@ The `if`, `then` and `else` keywords are all in-line. Don't worry, *many many ma
 
 To recap, the only unique feature Haskell brings to conditional statements is that they must have an `else` statement (formally known as an *expression* in Haskell) use a `then` keyword to evaluate the `if` expression, and the `if`, `then` and `else` keywords must be indented vertically.
 
+Next, [06-Intro to Lists](./06-Intro%20to%20Lists)
