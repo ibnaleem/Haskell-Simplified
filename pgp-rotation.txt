@@ -1,7 +1,7 @@
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA256
 
-I hereby revoke all previous PGP keys associated with my identity as part of standard OPSEC key rotation procedures. From 11-11-2023 onward the key currently published on my website https://ibnaleem.github.io/pgp-key.txt and personal repository https://github.com/ibnaleem/ibnaleem/blob/main/gpg-public-key.txt with a fingerprint of 20247EC023F2769E66181C0F581B4A2A862BBADE is the only PGP key I use for public communication.
+I hereby revoke all previous PGP keys associated with my identity as part of standard OPSEC key rotation procedures. From 11-11-2023 onward the key currently published on my website https://ibnaleem.github.io/Haskell-Simplified/pgp-rotation.txt and personal repository https://github.com/ibnaleem/ibnaleem/blob/main/gpg-public-key.txt with a fingerprint of 20247EC023F2769E66181C0F581B4A2A862BBADE is the only PGP key I use for public communication.
 
 Do not encrypt communications to my old keys. If you send me messages encrypted to an old key I will not read them.
 
