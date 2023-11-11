@@ -8,6 +8,6 @@
 </div>
 <br>
 <br>
-<a href="./Introduction/00-Preface.md">
+<a href="/Introduction/00-Preface">
 <button align="center">Start Here</button>
 </a>
