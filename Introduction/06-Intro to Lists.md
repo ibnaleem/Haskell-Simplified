@@ -93,25 +93,57 @@ True
 ## List Functions
 The `head` function accepts a list and yields its initial element, which is essentially the first element of the list.
 ```
-ghci > head [5 ,4 ,3 ,2 ,1]
+ghci > head [5, 4, 3, 2, 1]
 5
 ```
-`tail` does the opposite; it cuts off the `head` and returns the rest of the list.
+`last` does the opposite since it returns the last element in the list (opposite to `head`).
 ```
-ghci > tail [5 ,4 ,3 ,2 ,1] 
-[4,3,2,1]
+ghci > last [5, 4, 3, 2, 1]
+1 
+```
+`tail` takes a list and returns everything except the `head`, so the first element of the list
+```
+ghci > tail [5, 4, 3, 2, 1] 
+[4, 3, 2, 1]
 ```
 > 💡 `head` returns the first element and cuts off the entire list after it, whereas `tail` cuts off the head and returns all elements after it
 
-It's more accurate to say that `last` does the opposite of the `head` function, since it returns the last element in the list.
-```
-ghci > last [5 ,4 ,3 ,2 ,1]
-1 
-```
 `init` takes a list and returns everything except its last element, so opposite of `tail`.
 ```
-ghci > init [5 ,4 ,3 ,2 ,1] 
-[5,4,3,2]
+ghci > init [5, 4, 3, 2, 1] 
+[5, 4, 3, 2]
 ```
+
+Moving forward, when we refer to the head of a list, we are referring to the first element of the list at index 0.
+
+- head of `[1,2,3,4]` is 1
+- head of `[87, 62, 55, 22]` is 87
+- head of `[22, 99, 66]` is 22
+
+When we refer to the tail of a list, we are referring to a list *without* the head
+- tail of `[1,2,3,4]` is `[2,3,4]`
+- head of `[87, 62, 55, 22]` is `[62, 55, 22]`
+- head of `[22, 99, 66]` is `[99, 66]`
+
+With that established, what do you think `ghci>` will return if we do this?
+```
+ghci> head (tail [1, 2, 3, 4, 5, 6, 7, 8, 9])
+``` 
+<details open>
+  <summary>🔓 Click me to reveal the answer!</summary>
+  In programming and especially in Hasekell, breaking down the problem is crucial:
+
+  - Haskell will evaluate the parenthesis first as a rule of precedence, therefore, `tail [1, 2, 3, 4, 5, 6, 7, 8, 9]` would be evaluated first
+  - `tail` always returns a list *without* the head, and since the head is 1, the new list will be `[2, 3, 4, 5, 6, 7, 8, 9]`
+  - Finally, Haskell will evaluate the outer `head` function on the new list, `[2, 3, 4, 5, 6, 7, 8, 9]`
+  - The first element of that list is 2, therefore, `ghci>` will return 2
+
+  ```
+  ghci> head (tail [1, 2, 3, 4, 5, 6, 7, 8, 9])
+  2
+  ``` 
+</details>
+
+> ✍️ Try to get the head of an empty list `[]`; what does it return?
 
 *more being added soon*
