@@ -1,4 +1,10 @@
-# 👾 [Haskell-Simplified](https://ibnaleem.github.io/Haskell-Simplified)
+
+<p align="center"><a href="https://ibnaleem.github.io/Haskell-Simplified">Haskell-Simplified</a></p>
+    
+<div align="center">
+
+[![Stars Count](https://img.shields.io/github/stars/ibnaleem/Haskell-Simplified?style=flat)](https://github.com/ibnaleem/Haskell-Simplified/stargazers) 
+</div>
 
 An open-source curriculum for learning functional programming in Haskell. Dive into detailed chapters with hands-on exercises to reinforce theoretical knowledge. Showcase completed exercises in your portfolio for practical proof of your skills.
 
