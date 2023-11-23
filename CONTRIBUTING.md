@@ -13,7 +13,7 @@ $ git clone https://github.com/yourusername/Haskell-Simplified.git
 ```
 Navigate to the cloned directory:
 ```bash 
-$ cd FreeSMS
+$ cd Haskell-Simplified
 ```
 ### Create a New Branch
 Before making any changes, it's recommended to create a new branch. This ensures that your changes won't interfere with other contributions and keeps the main branch clean. Use the following command to create and switch to a new branch:
