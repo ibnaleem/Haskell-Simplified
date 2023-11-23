@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Intro to Lists - Haskell-Simplified</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Homepage</a></li><li class="chapter-item expanded affix "><li class="part-title">Preface</li><li class="chapter-item expanded "><a href="../Introduction/00-Preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded affix "><li class="part-title">Introduction</li><li class="chapter-item expanded "><a href="../Introduction/01-Installing Haskell.html"><strong aria-hidden="true">2.</strong> Installing Haskell</a></li><li class="chapter-item expanded "><a href="../Introduction/02-Loading Modules.html"><strong aria-hidden="true">3.</strong> Loading Modules</a></li><li class="chapter-item expanded "><a href="../Introduction/03-Intro to Haskell.html"><strong aria-hidden="true">4.</strong> Intro to Haskell</a></li><li class="chapter-item expanded "><a href="../Introduction/04-Functions in Haskell.html"><strong aria-hidden="true">5.</strong> Functions in Haskell</a></li><li class="chapter-item expanded "><a href="../Introduction/05-If Statements.html"><strong aria-hidden="true">6.</strong> If Statements</a></li><li class="chapter-item expanded "><a href="../Introduction/06-Intro to Lists.html" class="active"><strong aria-hidden="true">7.</strong> Intro to Lists</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Haskell-Simplified</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="intro-to-lists"><a class="header" href="#intro-to-lists">INTRO TO LISTS</a></h1>
+<p>Lists in Haskell are highly valuable, like shopping lists in real life. They serve as the most commonly used data structure, offering versatile solutions to various problems. This section covers fundamental aspects of lists, including <em>strings</em> (which are a <em>type</em> of list) and list comprehensions.</p>
+<p>In Haskell, lists are <strong>homogeneous,</strong> storing elements of the same type. You can have a list of integers or a list of characters, but mixing types, like having both integers and characters in one list, is not allowed.</p>
+<h2 id="let-statements"><a class="header" href="#let-statements">Let Statements</a></h2>
+<p>Before we begin, let's understand a new keyword we will be using a lot; <code>let</code>. In Haskell, a <code>let</code> statement is used to bind a name to a value within a specific scope. It allows you to create <em>local definitions</em> that are only valid within the block of code where the <code>let</code> statement is used. This helps in making code more modular and readable by restricting the scope of definitions to where they are actually needed.</p>
+<blockquote>
+<p>💡 In Haskell, a definition is a way of giving a name to a value or a function. It establishes an association between a name and an expression or a set of equations, specifying the value or behavior that the name represents. Definitions are crucial for clarity and reusability in Haskell code. These named entities can represent anything from simple values to complex functions.</p>
+</blockquote>
+<h2 id="lists"><a class="header" href="#lists">Lists</a></h2>
+<p><code>let</code>'s create a list:</p>
+<pre><code>ghci &gt; let lostNumbers = [4, 8, 15, 16, 23, 48] 
+ghci &gt; lostNumbers
+[4, 8, 15, 16, 23, 48]
+</code></pre>
+<p>Lists in Haskell are represented with square brackets, and their values are separated by commas. If we attempt a list like <code>[1,2,'a',3,'b','c',4]</code>, Haskell would raise an error since characters (indicated by single quotes) cannot mix with numbers. Speaking of characters, strings in Haskell are essentially lists of characters. For example, &quot;hello&quot; is equivalent to <code>['h','e','l','l','o']</code>. Since strings are lists, we can apply list functions to them, making it quite convenient.</p>
+<blockquote>
+<p>💡 <code>&quot; &quot;</code> are reserved for strings (a list of characters) where as <code>' '</code> are used for single characters (<code>'a'</code>, <code>'b'</code>). <code>&quot;a&quot;</code> will raise an error.</p>
+</blockquote>
+<h2 id="-and--operators"><a class="header" href="#-and--operators"><code>:</code> and <code>++</code> Operators</a></h2>
+<p>Now let's combine to lists together using the <code>++</code> operator:</p>
+<pre><code>ghci&gt; [1,2,3,4] ++ [9,10,11,12] 
+[1,2,3,4,9,10,11,12]
+ghci&gt; &quot;hello&quot; ++ &quot; &quot; ++ &quot;world&quot; 
+&quot;hello world&quot;
+ghci&gt; [’w’,’o’] ++ [’o’,’t’] 
+&quot;woot&quot;
+</code></pre>
+<p>Be cautious when repeatedly using the <code>++</code> operator on lengthy strings. When combining two lists, even appending a singleton list (<code>[1,2,3] ++ [4]</code>), Haskell internally traverses the entire left list. This is fine for smaller lists, but for a list with fifty million entries, it can be time-consuming. On the other hand, adding an element at the beginning of a list using the <code>:</code> operator (cons operator) is instantaneous.</p>
+<pre><code>ghci&gt; ’A’:&quot; SMALL CAT&quot; 
+&quot;A SMALL CAT&quot;
+ghci &gt; 5:[1 ,2 ,3 ,4 ,5] 
+[5,1,2,3,4,5]
+</code></pre>
+<blockquote>
+<p>💡 A singleton list is a list that contains only one element.</p>
+</blockquote>
+<p>Note that <code>:</code> combines a number with a list of numbers or a character with a list of characters, while <code>++</code> merges two lists. Even when appending an element to the end of a list with <code>++</code>, you need to enclose it in square brackets to form a list.</p>
+<p>For instance, <code>[1,2,3]</code> is essentially shorthand for <code>1:2:3:[]</code>. <code>[]</code> denotes an empty list. If we add 3 to it using <code>:</code>, it becomes <code>[3]</code>. Prepending 2 to that gives <code>[2,3]</code>, and the pattern continues.</p>
+<blockquote>
+<p>💡 <code>[]</code>, <code>[[]]</code>, and <code>[[],[],[]]</code> represent distinct entities. The first is an empty list, the second is a list containing one empty list, and the third is a list containing three empty lists.</p>
+</blockquote>
+<h2 id="indexing"><a class="header" href="#indexing">Indexing</a></h2>
+<p>To retrieve an element from a list by index, use the <code>!!</code> operator, where indices begin at 0.</p>
+<pre><code>ghci&gt; &quot;Steve Buscemi&quot; !! 6
+’B’
+ghci &gt; [9.4 ,33.2 ,96.2 ,11.2 ,23.25] !! 1
+33.2
+</code></pre>
+<blockquote>
+<p>💡 &quot;Out of bounds&quot; error exist in Haskell! If you try to get the sixth element from a list that only has four elements, you’ll get an error so be careful!</p>
+</blockquote>
+<p>Lists have the flexibility to encompass other lists, including lists within lists, forming nested structures.</p>
+<pre><code>ghci&gt; let b = [[1,2,3,4],[5,3,3,3],[1,2,2,3,4],[1,2,3]] 
+ghci&gt; b
+[[1,2,3,4],[5,3,3,3],[1,2,2,3,4],[1,2,3]] 
+ghci&gt; b ++ [[1,1,1,1]]
+[[1,2,3,4],[5,3,3,3],[1,2,2,3,4],[1,2,3],[1,1,1,1]] 
+ghci&gt; [6,6,6]:b
+[[6,6,6],[1,2,3,4],[5,3,3,3],[1,2,2,3,4],[1,2,3]] 
+ghci&gt; b !! 2
+[1,2,2,3,4]
+</code></pre>
+<p>Lists within a list may vary in length, but they must maintain uniformity in terms of data types. Similar to not having a list with both characters and numbers, you cannot construct a list containing both lists of characters and lists of numbers.</p>
+<pre><code>ghci&gt; let a = [[1,2,3], ['a','b','c']]
+&lt;interactive&gt;:1:11: error:
+    • No instance for (Num Char) arising from the literal ‘1’
+    • In the expression: 1
+      In the expression: [1, 2, 3]
+      In the expression: [[1, 2, 3], ['a', 'b', 'c']]
+</code></pre>
+<h2 id="comparing-lists"><a class="header" href="#comparing-lists">Comparing Lists</a></h2>
+<p>Lists are comparable if their elements are comparable. When using <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, and <code>&gt;=</code> for list comparison, it follows a lexicographical order. Initial comparisons focus on the <strong>heads</strong> of the lists. If they are equal, the comparison extends to the second elements, and so forth.</p>
+<pre><code>ghci&gt; [3,2,1] &gt; [2,1,0] 
+True
+ghci&gt; [3,2,1] &gt; [2,10,100] 
+True
+ghci&gt; [3,4,2] &gt; [3,4] 
+True
+ghci&gt; [3,4,2] &gt; [2,4] 
+True
+ghci&gt; [3,4,2] == [3,4,2] 
+True
+</code></pre>
+<h2 id="list-functions"><a class="header" href="#list-functions">List Functions</a></h2>
+<p>The <code>head</code> function accepts a list and yields its initial element, which is essentially the first element of the list.</p>
+<pre><code>ghci &gt; head [5, 4, 3, 2, 1]
+5
+</code></pre>
+<p><code>last</code> does the opposite since it returns the last element in the list (opposite to <code>head</code>).</p>
+<pre><code>ghci &gt; last [5, 4, 3, 2, 1]
+1 
+</code></pre>
+<p><code>tail</code> takes a list and returns everything except the <code>head</code>, so the first element of the list</p>
+<pre><code>ghci &gt; tail [5, 4, 3, 2, 1] 
+[4, 3, 2, 1]
+</code></pre>
+<blockquote>
+<p>💡 <code>head</code> returns the first element and cuts off the entire list after it, whereas <code>tail</code> cuts off the head and returns all elements after it</p>
+</blockquote>
+<p><code>init</code> takes a list and returns everything except its last element, so opposite of <code>tail</code>.</p>
+<pre><code>ghci &gt; init [5, 4, 3, 2, 1] 
+[5, 4, 3, 2]
+</code></pre>
+<p>Moving forward, when we refer to the head of a list, we are referring to the first element of the list at index 0.</p>
+<ul>
+<li>head of <code>[1,2,3,4]</code> is 1</li>
+<li>head of <code>[87, 62, 55, 22]</code> is 87</li>
+<li>head of <code>[22, 99, 66]</code> is 22</li>
+</ul>
+<p>When we refer to the tail of a list, we are referring to a list <em>without</em> the head</p>
+<ul>
+<li>tail of <code>[1,2,3,4]</code> is <code>[2,3,4]</code></li>
+<li>head of <code>[87, 62, 55, 22]</code> is <code>[62, 55, 22]</code></li>
+<li>head of <code>[22, 99, 66]</code> is <code>[99, 66]</code></li>
+</ul>
+<p>With that established, what do you think <code>ghci&gt;</code> will return if we do this?</p>
+<pre><code>ghci&gt; head (tail [1, 2, 3, 4, 5, 6, 7, 8, 9])
+</code></pre>
+<details open>
+  <summary>🔓 Click me to reveal the answer!</summary>
+  In programming and especially in Hasekell, breaking down the problem is crucial:
+<ul>
+<li>Haskell will evaluate the parenthesis first as a rule of precedence, therefore, <code>tail [1, 2, 3, 4, 5, 6, 7, 8, 9]</code> would be evaluated first</li>
+<li><code>tail</code> always returns a list <em>without</em> the head, and since the head is 1, the new list will be <code>[2, 3, 4, 5, 6, 7, 8, 9]</code></li>
+<li>Finally, Haskell will evaluate the outer <code>head</code> function on the new list, <code>[2, 3, 4, 5, 6, 7, 8, 9]</code></li>
+<li>The first element of that list is 2, therefore, <code>ghci&gt;</code> will return 2</li>
+</ul>
+<pre><code>ghci&gt; head (tail [1, 2, 3, 4, 5, 6, 7, 8, 9])
+2
+</code></pre>
+</details>
+<blockquote>
+<p>✍️ Try to get the head of an empty list <code>[]</code>; what does it return?</p>
+</blockquote>
+<p><em>more being added soon</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Introduction/05-If Statements.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Introduction/05-If Statements.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

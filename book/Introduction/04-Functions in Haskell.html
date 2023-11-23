@@ -1,0 +1,355 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Functions in Haskell - Haskell-Simplified</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Homepage</a></li><li class="chapter-item expanded affix "><li class="part-title">Preface</li><li class="chapter-item expanded "><a href="../Introduction/00-Preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded affix "><li class="part-title">Introduction</li><li class="chapter-item expanded "><a href="../Introduction/01-Installing Haskell.html"><strong aria-hidden="true">2.</strong> Installing Haskell</a></li><li class="chapter-item expanded "><a href="../Introduction/02-Loading Modules.html"><strong aria-hidden="true">3.</strong> Loading Modules</a></li><li class="chapter-item expanded "><a href="../Introduction/03-Intro to Haskell.html"><strong aria-hidden="true">4.</strong> Intro to Haskell</a></li><li class="chapter-item expanded "><a href="../Introduction/04-Functions in Haskell.html" class="active"><strong aria-hidden="true">5.</strong> Functions in Haskell</a></li><li class="chapter-item expanded "><a href="../Introduction/05-If Statements.html"><strong aria-hidden="true">6.</strong> If Statements</a></li><li class="chapter-item expanded "><a href="../Introduction/06-Intro to Lists.html"><strong aria-hidden="true">7.</strong> Intro to Lists</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Haskell-Simplified</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <head>
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/Introduction/" />
+</head>
+<h1 id="functions"><a class="header" href="#functions">FUNCTIONS</a></h1>
+<p>To recap, we learned in <a href="./02-Loading%20Modules">02-Loading Modules</a> that Haskell does not declare variables; instead, <strong>it declares functions.</strong></p>
+<pre><code>ghci&gt; myVar = 1
+ghci&gt; myVar
+1
+</code></pre>
+<h2 id="pure-functions"><a class="header" href="#pure-functions">Pure Functions</a></h2>
+<p>I know you've never heard the term <em>pure function</em> before, but in Haskell, this is a prerequisite for creating functions. </p>
+<p>To put it simply, a pure function is a function that does not have any <em>side-effects</em>, and always returns <em>a value</em>. Previously, we declared myVar = 1, which is a pure function since myVar always returns 1. Haskell functions don't have to return integers as their values, they could return strings, lists, tuples, etc.</p>
+<p>A side-effect in programming happens when a function not only calculates a result but also <strong>causes changes outside of its own calculation.</strong> Haskell avoids side-effects to make programs clearer and more predictable. In Haskell, functions are like math—they take inputs and give outputs without hidden changes. This is good because it makes code easier to understand and less prone to bugs. In contrast, some other languages, like Python, often use side effects. For instance, a function in Python might not just return a value but also print something or modify a variable somewhere else:</p>
+<pre><code class="language-python"># Side effect: Modifying a variable outside the function
+total = 0
+
+def add_and_print(x):
+    global total
+    total += x
+    print(&quot;Current total:&quot;, total)
+
+add_and_print(5)  # Prints: Current total: 5
+</code></pre>
+<p>The function not only adds a number but also changes the <code>total</code> variable and prints a message. This kind of hidden change is a side-effect.</p>
+<p>Another importance of pure functions is the order they are carried out <strong>does not matter:</strong></p>
+<pre><code class="language-haskell">func1 x = x + 1
+
+func2 y = y * 2
+
+func3 x y = (func1 3) * (func2 5)
+
+func4 x y = (func2 5) * (func1 3)
+</code></pre>
+<p><code>func3</code> and <code>func4</code> yield the same value, 40, regardless of their order execution. Now consider Python that has <em>side-effects:</em></p>
+<pre><code class="language-python">def open_file(file_path, mode='r'):
+    file = open(file_path, mode)
+    print(f&quot;File '{file_path}' opened successfully.&quot;)
+    return file
+
+def close_file(file):
+    file.close()
+    print(&quot;File closed.&quot;)
+</code></pre>
+<p>Could you run <code>close_file()</code> before <code>open_file()</code>? Let's see what would happen:</p>
+<pre><code>close_file(&quot;example.txt&quot;)
+ERROR: FILE IS NOT OPEN
+</code></pre>
+<blockquote>
+<p>💡 For simplicity, we have presented the error as <em>FILE NOT OPEN</em> instead of the actual error that Python would throw.</p>
+</blockquote>
+<p>The side-effect is that the file must be open before you can run the <code>close_file()</code> function.</p>
+<h2 id="infix-vs-prefix-functions"><a class="header" href="#infix-vs-prefix-functions">Infix vs Prefix Functions</a></h2>
+<p>We've actually been using functions without explicitly mentioning them. For example, the <code>*</code> symbol functions as a multiplier, taking two numbers and producing a result. When working with numbers, we call it by placing it <em>between</em> them, known as an <em>infix function</em>. Functions that don't involve numbers are generally used in a <em>prefix form</em>. </p>
+<pre><code>ghci &gt; 5 * 6 (infix function)
+30
+ghci&gt; succ 8 (prefix function)
+9
+</code></pre>
+<blockquote>
+<p>💡 Infix functions are placed <em>between</em> their parameters. For example, the <code>*</code> function takes 2 parameters which are placed between it like <code>5 * 6</code>; <code>5</code> and <code>6</code> are the parameters of <code>*</code> function.</p>
+</blockquote>
+<p>In Haskell, functions are called by writing the function name, followed by a space and then the parameters separated by spaces. </p>
+<pre><code class="language-haskell">func3 x y = x + y -- x and y are parameters of func3
+</code></pre>
+<p>Unlike most imperative languages, Haskell does not require parentheses for function calls. We'll now assume that functions are in the prefix form unless specified. Let's begin by calling one of the simplest functions in Haskell, which was shown in the example above:</p>
+<pre><code>ghci &gt; succ 8
+9
+</code></pre>
+<p>The <code>succ</code> function gives the next value in a sequence. To use it, we just put the function name and the parameter with a space. Calling functions with multiple parameters is easy. The <code>min</code> and <code>max</code> functions take two comparable things, like numbers, and return the smaller or larger one, respectively:</p>
+<pre><code>ghci &gt; min 9 10 
+9
+ghci &gt; min 3.4 3.2 
+3.2
+ghci &gt; max 100 101 
+101
+</code></pre>
+<p>Calling a function by putting a space after it and then typing out the parameters has the highest precedence. This means these two statements are the same:</p>
+<pre><code>ghci&gt; succ 9 + max 5 4 + 1 16
+ghci&gt; (succ 9) + (max 5 4) + 1 16
+</code></pre>
+<p>Using parenthesis will not change the precedence; it is good practice because it makes code more readable.</p>
+<p>However, to find the successor of the product of 9 and 10, we can't write <code>succ 9 * 10</code> because it would get the successor of 9 and then multiply by 10 (resulting in 100). Instead, we use parentheses: <code>succ (9 * 10)</code> to get 91.</p>
+<pre><code>ghci&gt; succ 9 * 10
+100
+ghci&gt; succ (9 * 10)
+91
+</code></pre>
+<p><strong>This is not a side-effect;</strong> recall that the <code>succ</code> function takes 1 parameter, and because calling a function has the highest precedence as previously mentioned, Haskell will evaluate <code>succ 9</code> before multiplication. This can be easily fixed by adding parenthesis since <code>(9 * 10)</code> will yield a <em>single</em> value, which can be input into the <code>succ</code> function.</p>
+<p>When a function has two parameters, we can call it as an infix function by using backticks. </p>
+<pre><code>ghci&gt; 9 `min` 10
+9
+ghci &gt; 3.4 `min` 3.2 
+3.2
+ghci &gt; 100 `max` 101 
+101
+</code></pre>
+<p>This is especially useful when you're using functions like <code>div</code>. The <code>div</code> function takes two integers and does integral division between them, so <code>div 92 10</code> would yield 9. However, it's confusing to determine which number is doing the division and which number is being divided. Instead if we type <code>92 `div` 10</code> it becomes much more clear which number is doing the division and which one is being divided (in this case 92 is being divided by 10).</p>
+<p>People from imperative languages often use parentheses for function application. In Python, it's common to see functions called like <code>foo()</code>, <code>bar(1)</code>, or <code>baz(3, &quot;haha&quot;)</code>. In Haskell, we use spaces for function application. So, in Haskell, it would be <code>foo</code>, <code>bar 1</code>, and <code>baz 3 &quot;haha&quot;</code>. When you see something like <code>bar (bar 3)</code>, it doesn't mean <code>bar</code> is called with <code>bar</code> and <code>3</code> as parameters. It means we first call the function <code>bar</code> with <code>3</code> as the parameter to get a number, and then we call <code>bar</code> again with that number. In Python, that would be something like <code>bar(bar(3))</code>.</p>
+<h2 id="exercises"><a class="header" href="#exercises">Exercises</a></h2>
+<ul>
+<li>
+<p>Create 2 functions called doubleMe1 and doubleMe2 that take an input and return its double.</p>
+</li>
+<li>
+<p>Create a function called doubleUs that take two inputs, doubles them, then adds them together. For example, <code>doubleUs 3 4</code> should yield 14.</p>
+</li>
+<li>
+<p>Create a function called nextUp that takes 2 values, performs integral division, and finds the successor. For example, <code>nextUp 10 5</code> should yield 3.</p>
+</li>
+</ul>
+<blockquote>
+<p>💡 Once you have loaded your file, you can run each function by calling it, like <code>nextUp 10 5</code></p>
+</blockquote>
+<p><a href="./Solutions/04-Solutions">Solutions are posted here.</a> Verify and continue to <a href="./05-If%20Statements">05-If Statements</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Introduction/03-Intro to Haskell.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../Introduction/05-If Statements.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Introduction/03-Intro to Haskell.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../Introduction/05-If Statements.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

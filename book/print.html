@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Homepage</a></li><li class="chapter-item expanded affix "><li class="part-title">Preface</li><li class="chapter-item expanded "><a href="Introduction/00-Preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded affix "><li class="part-title">Introduction</li><li class="chapter-item expanded "><a href="Introduction/01-Installing Haskell.html"><strong aria-hidden="true">2.</strong> Installing Haskell</a></li><li class="chapter-item expanded "><a href="Introduction/02-Loading Modules.html"><strong aria-hidden="true">3.</strong> Loading Modules</a></li><li class="chapter-item expanded "><a href="Introduction/03-Intro to Haskell.html"><strong aria-hidden="true">4.</strong> Intro to Haskell</a></li><li class="chapter-item expanded "><a href="Introduction/04-Functions in Haskell.html"><strong aria-hidden="true">5.</strong> Functions in Haskell</a></li><li class="chapter-item expanded "><a href="Introduction/05-If Statements.html"><strong aria-hidden="true">6.</strong> If Statements</a></li><li class="chapter-item expanded "><a href="Introduction/06-Intro to Lists.html"><strong aria-hidden="true">7.</strong> Intro to Lists</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -172,7 +172,512 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
+                        <head>
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/" />
+    <title>Learn Haskell</title>
+</head>
+<div id="title" align="center">
+    <h1 id="haskell-simplified"><a class="header" href="#haskell-simplified">Haskell-Simplified</a></h1>
+    <p>An open-source curriculum for learning functional programming in Haskell. Dive into detailed chapters with hands-on exercises to reinforce theoretical knowledge. Showcase completed exercises in your portfolio for practical proof of your skills.</p>
+    <a href="https://github.com/ibnaleem/Haskell-Simplified/blob/main/LICENSE"><img src="https://img.shields.io/github/license/ibnaleem/Haskell-Simplified?style=for-the-badge"></a><a href="https://github.com/ibnaleem/Haskell-Simplified/stargazers"><img src="https://img.shields.io/github/stars/ibnaleem/Haskell-Simplified.svg?style=for-the-badge"></a>
+</div>
+<br>
+<br>
+<a href=".././Introduction/00-Preface">
+<button align="center">Start Here</button>
+</a><div style="break-before: page; page-break-before: always;"></div><head>
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/Introduction/" />
+</head>
+<h1 id="preface"><a class="header" href="#preface">PREFACE</a></h1>
+<p><em>Feel free to skip my preface that outlines the motivation and inspiration for creating Haskell-Simplified.</em> Go to <em><a href="Introduction/./01-Installing%20Haskell">Installing Haskell</a></em>.</p>
+<h2 id="programming-paradigms"><a class="header" href="#programming-paradigms">Programming Paradigms</a></h2>
+<p>I was automatically enrolled for <em>Intro to Programming</em> for my first-year in Computer Science. I initially thought this module covered Java since I read online that one of the modules would focus on Java. However, I later discovered that Java is taught in our second year for CS, and the <em>Intro to Programming</em> module actually covered Python... a language I'm extremely proficient in. I learned that I can switch <em>Intro to Programming</em> for a more advanced course, namely <em>Programming Paradigms</em>. After making the switch, our lecturer introduced us to the course and the many <em>programming paradigms</em> that exist in CS. I always assumed all programming languages were the same, only different syntax and concepts, but to learn that there was a paradigm called <em>functional programming</em> threw me off a bit.</p>
+<p>Programming paradigms are different ways to write code. Functional programming is when you use functions like in math, and avoid changing things in your code. Read <em><a href="Introduction/./03-Intro%20to%20Haskell">Intro to Haskell</a></em> to learn more about functional programming.</p>
+<h2 id="self-learning"><a class="header" href="#self-learning">Self-Learning</a></h2>
+<p>The goal of Haskell-Simplified isn't only to teach you functional programming in Haskell, <strong>but also myself,</strong> struggling to understand this new programming paradigm I wish I hadn't touched. I've always known that teaching others is the best way to teach yourself, since you have to simplify complex concepts to help others comprehend them, which helps you understand the concepts as well. </p>
+<h2 id="inspiration"><a class="header" href="#inspiration">Inspiration</a></h2>
+<p>If you've ever read <a href="https://theodinproject.com">The Odin Project</a> (you should if you haven't), you'd find various similarities with Haskell-Simplified; this is because Haskell-Simplied is inspired by <a href="https://theodinproject.com">The Odin Project</a> to teach others Haskell in a simple and comprehensive manner with resources and exercises to help.</p>
+<p>Thank you for taking the time to read my preface; you can begin your functional programming journey in the next chapter, <em><a href="Introduction/./01-Installing%20Haskell">Installing Haskell</a></em> </p>
+<div style="break-before: page; page-break-before: always;"></div><head>
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/Introduction/" />
+</head>
+<h1 id="installing-haskell"><a class="header" href="#installing-haskell">INSTALLING HASKELL</a></h1>
+<p>Before we begin learning Haskell, let's start by installing it to interact with the compiler and how to load functions. The more you code, the easier and faster you'll pick up Haskell syntax.</p>
+<h2 id="ghcup-universal-installer"><a class="header" href="#ghcup-universal-installer">GHCup: universal installer</a></h2>
+<p>GHCup is a simple tool to set up Haskell on your computer. It helps you install everything you need for Haskell programming and lets you manage those installations easily. You don't need special permissions to use GHCup. You can use GHCup to set up the Haskell toolchain, which includes:</p>
+<ol>
+<li>
+<p><strong>GHC (Haskell Compiler):</strong> This is the main tool for running Haskell code. While we'll use GHC for our examples, in real projects, you might use tools like Cabal or Stack.</p>
+</li>
+<li>
+<p><strong>HLS (Haskell Language Server):</strong> HLS works in the background with your code editor to enhance your Haskell coding experience.</p>
+</li>
+<li>
+<p><strong>Cabal (Haskell Build Tool):</strong> Cabal helps organize and build your Haskell projects, manage dependencies, and more.</p>
+</li>
+<li>
+<p><strong>Stack (Alternative Build Tool):</strong> Stack is another option to Cabal for building Haskell projects.</p>
+</li>
+</ol>
+<h3 id="installation"><a class="header" href="#installation">Installation</a></h3>
+<p>Use these commands to fetch the ghcup binary and run it. It will be stored in <code>~/.ghcup/bin</code> (or <code>C:\ghcup\bin</code> on Windows). This process will help you install the Haskell Toolchain interactively. Remember to execute these commands as a regular user, <strong>not as a root or admin user.</strong></p>
+<p>For Linux, macOS, FreeBSD or Windows Subsystem 2 for Linux, run this in a terminal:</p>
+<pre><code>curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+</code></pre>
+<p>For Windows, run this command in a PowerShell session:</p>
+<pre><code>Set-ExecutionPolicy Bypass -Scope Process -Force;[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; try { Invoke-Command -ScriptBlock ([ScriptBlock]::Create((Invoke-WebRequest https://www.haskell.org/ghcup/sh/bootstrap-haskell.ps1 -UseBasicParsing))) -ArgumentList $true } catch { Write-Error $_ }
+</code></pre>
+<p><em><a href="https://www.youtube.com/watch?v=bB4fmQiUYPw">Here's a YouTube video for installing Haskell on Windows</a></em></p>
+<p>To understand the functionality of these scripts, refer to the <a href="https://github.com/haskell/ghcup-hs/tree/master/scripts/bootstrap">source code at this repository</a>. Experienced users might prefer a <a href="https://www.haskell.org/ghcup/install/#manual-installation">manual installation</a> and GPG verification of the binaries.</p>
+<h3 id="versions"><a class="header" href="#versions">Versions</a></h3>
+<p>GHCup provides two primary channels for each tool: <em>recommended</em> and <em>latest</em>. By default, it installs the <em>recommended</em> version.</p>
+<p>The <em>latest</em> channel corresponds to the most recent release of each tool. In contrast, the <em>recommended</em> version is selected by GHCup maintainers, considering factors such as community adoption (hackage libraries, tools like HLS, stackage support, etc.) and addressing known bugs.</p>
+<p>For additional details, refer to <a href="https://www.haskell.org/ghcup/guide/#tags-and-shortcuts">tags and shortcuts.</a></p>
+<h3 id="ghc-command"><a class="header" href="#ghc-command">GHC Command</a></h3>
+<p>Begin by launching your system's command line interface (CLI) and executing <code>ghc --version</code> to confirm the successful installation of the Haskell toolchain.</p>
+<pre><code>&gt;&gt; ghc --version
+The Glorious Glasgow Haskell Compilation System, version 9.2.8
+</code></pre>
+<p>If your output matches above (except the version) then you have successfully installed Haskell on your machine. If you're having issues, <a href="https://www.haskell.org/ghcup/install/">read the installation guide by Haskell</a>. You may need to perform a manual installation.</p>
+<h3 id="uninstallation"><a class="header" href="#uninstallation">Uninstallation</a></h3>
+<p>For Linux users, run <code>ghcup nuke</code> and remove any ghcup added lines in your <code>~/.bashrc</code>.</p>
+<p>For Windows users, a <code>Uninstall Haskell.ps1</code> script should be downloaded on your Desktop after installation. <code>Right click &gt; Run with PowerShell</code> to uninstall Haskell.</p>
+<h3 id="vscode-integration"><a class="header" href="#vscode-integration">VSCode Integration</a></h3>
+<p>To begin, follow these steps for seamless integration with the Haskell Language Server (HLS):</p>
+<ol>
+<li>
+<p>Install GHCup, ensuring you choose to install the Haskell Language Server (HLS) during the installation process.</p>
+</li>
+<li>
+<p>Install the extension (in VSCode: <code>Ctrl + P</code> and then <code>ext install haskell.haskell</code>).</p>
+</li>
+<li>
+<p>Verify that your project utilizes the GHC version installed through GHCup (otherwise, HLS may encounter launch issues):</p>
+</li>
+<li>
+<p>On Linux, if encountering an issue (&quot;cannot find ghc version&quot;) when VSCode is not launched from a terminal, resolve it by informing HLS about your GHCup on <code>$PATH</code>.</p>
+</li>
+</ol>
+<h3 id="vim-integration"><a class="header" href="#vim-integration">Vim Integration</a></h3>
+<p>See <a href="https://github.com/hasufell/ghcup.vim">ghcup.vim</a>. I'm a little jealous you know how to use Vim.</p>
+<p>Finally, we can begin <a href="Introduction/./02-Loading%20Modules">02-Loading Modules</a> in Haskell.</p>
+<div style="break-before: page; page-break-before: always;"></div><head>
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/Introduction/" />
+</head>
+<h1 id="loading-modules"><a class="header" href="#loading-modules">LOADING MODULES</a></h1>
+<p>Now that Haskell has been successfully installed, we can create Haskell files and load them into the compiler (GHC).</p>
+<p>Start by creating a <code>hello.hs</code> file, open it with your favourite text editor and type the following:</p>
+<pre><code class="language-haskell">main = putStrLn &quot;Hello, Haskell!&quot;
+</code></pre>
+<p>To compile, make sure you are in the same directory as <code>hello.hs</code>, and run <code>ghc hello.hs</code> in your CLI:</p>
+<pre><code>&gt;&gt; ghc hello.hs
+[1 of 1] Compiling Main             ( hello.hs, hello.o )
+Linking hello ...
+</code></pre>
+<p>To run the our compiled program, we simply type <code>./hello</code> in our CLI, just like <code>C</code>!</p>
+<pre><code>./hello 
+Hello, Haskell!
+</code></pre>
+<p>Congrats, you've written your first Haskell code! Now let's disect what we wrote:</p>
+<ul>
+<li><code>main</code>: In Haskell, every program must have a <code>main</code> function, which is the entry point of the program. The <code>main</code> function is of type I/O, indicating that it performs <strong>i</strong>nput/<strong>o</strong>utput operations and <strong>does not return a value.</strong> Think of the <code>main</code> function like the <code>if __name__ == &quot;__main__&quot;:</code> in Python, <code>int main() {...}</code> in C, and <code>public static void main(String[] args) {...}</code> in Java. It will always run.
+<br></li>
+<li><code>putStrLn</code>: This is a function that takes a String (a sequence of characters, remember that as we'll discuss this in the Types chapter) and performs an I/O operation by printing the string to the console.
+<br></li>
+<li><code>&quot;Hello, Haskell!&quot;</code>: This is the string that was printed to the console. This is probably the only line of code you understood <em>before</em> the explanation if you've ever coded before.</li>
+</ul>
+<p>Notice that the <code>main</code> function was declared with <code>=</code> and some value to return. If you've coded in JavaScript, it is equivalent to a <code>const</code> function:</p>
+<pre><code class="language-javascript">const multiply = (a, b) =&gt; {
+    const result = a * b;
+    return result;
+};
+</code></pre>
+<p>This is because Haskell <strong>does not declare variables, only functions.</strong> </p>
+<p>🗣️ <em>But can't we do <code>myVar = 3</code></em>?</p>
+<p>Yes, but <code>myVar</code> would not be a variable <strong>but a function:</strong></p>
+<pre><code>ghci&gt; myVar = 1
+ghci&gt; myVar
+1
+</code></pre>
+<p><code>myVar</code> is a function because it returns a value, which in this case is just 1. </p>
+<p>To understand this further, let's dive into <a href="Introduction/./03-Intro%20to%20Haskell">03-Intro to Haskell</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><head>
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/Introduction/" />
+</head>
+<h1 id="intro-to-haskell"><a class="header" href="#intro-to-haskell">INTRO TO HASKELL</a></h1>
+<p>Let's begin! If you skipped the introduction, go back and check the last part; it tells you what you need for this tutorial and how we'll use functions. Now, open your terminal and type &quot;ghci&quot; to enter Haskell's interactive mode. You'll see something like this:</p>
+<pre><code>GHCi, version 9.2.8: https://www.haskell.org/ghc/  :? for help
+ghci&gt; 
+</code></pre>
+<p>If you see something like this:</p>
+<pre><code>GHCi, version 9.2.8: https://www.haskell.org/ghc/  :? for help
+Prelude&gt; 
+</code></pre>
+<p>then simple type <code>:set prompt &quot;ghci&gt; &quot;</code>:</p>
+<pre><code>Prelude&gt; :set prompt &quot;ghci&gt; &quot;
+ghci&gt; 
+</code></pre>
+<p>Good, now let's try some arithmetic:</p>
+<pre><code>ghci&gt; 2 + 15
+17
+ghci &gt; 49 * 100
+4900
+ghci &gt; 1892 - 1472 
+420
+ghci&gt; 5 / 2 
+2.5
+ghci &gt;
+</code></pre>
+<p>This is easy to understand. You can use multiple operators in a single line, and they follow the standard precedence rules. If needed, you can use parentheses to clarify or modify the precedence.</p>
+<pre><code>hci &gt; (50 * 100) - 4999
+1
+ghci&gt; 50 * 100 - 4999
+1
+ghci &gt; 50 * (100 - 4999)
+-244950
+</code></pre>
+<blockquote>
+<p>💡 Precedence: the condition of being considered more important than someone or something else; priority in importance, order, or rank. <strong>Order of operations in mathematics.</strong></p>
+</blockquote>
+<p>Be cautious when dealing with negative numbers; it's safer to enclose them in parentheses. For instance, <code>5 * -3</code> might cause an issue, but <code>5 * (-3)</code> will work fine.</p>
+<p>Boolean algebra is simple too. As you likely know, <code>&amp;&amp;</code> represents a boolean <strong>AND</strong>, <code>||</code> stands for a boolean <strong>OR,</strong> and <code>not</code> negates either True or False.</p>
+<pre><code>ghci &gt; True &amp;&amp; False
+False
+ghci &gt; True &amp;&amp; True
+True
+ghci &gt; False || True
+True
+ghci &gt; not False
+True
+ghci&gt; not (True &amp;&amp; True)
+False
+</code></pre>
+<p>The expression <code>(True &amp;&amp; True)</code> yielded <code>True</code> and <code>not</code> negated this, resulting in <code>False</code>.</p>
+<p>Testing for equalities:</p>
+<pre><code>ghci&gt; 5 == 5
+True
+ghci&gt; 1 == 0
+False
+ghci&gt; 5 /= 5
+False
+ghci&gt; 5 /= 4
+True
+ghci&gt; &quot;hello&quot; == &quot;hello&quot;
+True
+</code></pre>
+<p>Note that <code>/=</code> means not equal to, which is why <code>5 /= 4</code> yielded True. </p>
+<p>What if we try to combine an integer with a string, like <code>5 + &quot;hello&quot;</code>? Let's try it:</p>
+<pre><code>ghci&gt; 5 + &quot;hello&quot;
+
+&lt;interactive&gt;:1:3: error:
+    • No instance for (Num String) arising from a use of ‘+’
+    • In the expression: 5 + &quot;hello&quot;
+      In an equation for ‘it’: it = 5 + &quot;hello&quot;
+</code></pre>
+<p>We see that the Haskell compiler cannot find a valid implementation (instance) of a particular type class for a given type. The given type is (Num String) which cannot be implemented from the use of <code>+</code> operator. </p>
+<p>Instead, we can use the <code>++</code> operator for concatenation:</p>
+<pre><code>ghci&gt; 5 ++ &quot;hello&quot;
+&quot;5hello&quot;
+</code></pre>
+<p>We will discuss what distinguishes <code>+</code> from <code>++</code> and why you can concatenate different types with <code>++</code> and not <code>+</code> in the <a href="Introduction/">Types</a> chapter.</p>
+<p>For now, let's learn about <a href="Introduction/./04-Functions%20in%20Haskell">04-Functions in Haskell</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><head>
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/Introduction/" />
+</head>
+<h1 id="functions"><a class="header" href="#functions">FUNCTIONS</a></h1>
+<p>To recap, we learned in <a href="Introduction/./02-Loading%20Modules">02-Loading Modules</a> that Haskell does not declare variables; instead, <strong>it declares functions.</strong></p>
+<pre><code>ghci&gt; myVar = 1
+ghci&gt; myVar
+1
+</code></pre>
+<h2 id="pure-functions"><a class="header" href="#pure-functions">Pure Functions</a></h2>
+<p>I know you've never heard the term <em>pure function</em> before, but in Haskell, this is a prerequisite for creating functions. </p>
+<p>To put it simply, a pure function is a function that does not have any <em>side-effects</em>, and always returns <em>a value</em>. Previously, we declared myVar = 1, which is a pure function since myVar always returns 1. Haskell functions don't have to return integers as their values, they could return strings, lists, tuples, etc.</p>
+<p>A side-effect in programming happens when a function not only calculates a result but also <strong>causes changes outside of its own calculation.</strong> Haskell avoids side-effects to make programs clearer and more predictable. In Haskell, functions are like math—they take inputs and give outputs without hidden changes. This is good because it makes code easier to understand and less prone to bugs. In contrast, some other languages, like Python, often use side effects. For instance, a function in Python might not just return a value but also print something or modify a variable somewhere else:</p>
+<pre><code class="language-python"># Side effect: Modifying a variable outside the function
+total = 0
+
+def add_and_print(x):
+    global total
+    total += x
+    print(&quot;Current total:&quot;, total)
+
+add_and_print(5)  # Prints: Current total: 5
+</code></pre>
+<p>The function not only adds a number but also changes the <code>total</code> variable and prints a message. This kind of hidden change is a side-effect.</p>
+<p>Another importance of pure functions is the order they are carried out <strong>does not matter:</strong></p>
+<pre><code class="language-haskell">func1 x = x + 1
+
+func2 y = y * 2
+
+func3 x y = (func1 3) * (func2 5)
+
+func4 x y = (func2 5) * (func1 3)
+</code></pre>
+<p><code>func3</code> and <code>func4</code> yield the same value, 40, regardless of their order execution. Now consider Python that has <em>side-effects:</em></p>
+<pre><code class="language-python">def open_file(file_path, mode='r'):
+    file = open(file_path, mode)
+    print(f&quot;File '{file_path}' opened successfully.&quot;)
+    return file
+
+def close_file(file):
+    file.close()
+    print(&quot;File closed.&quot;)
+</code></pre>
+<p>Could you run <code>close_file()</code> before <code>open_file()</code>? Let's see what would happen:</p>
+<pre><code>close_file(&quot;example.txt&quot;)
+ERROR: FILE IS NOT OPEN
+</code></pre>
+<blockquote>
+<p>💡 For simplicity, we have presented the error as <em>FILE NOT OPEN</em> instead of the actual error that Python would throw.</p>
+</blockquote>
+<p>The side-effect is that the file must be open before you can run the <code>close_file()</code> function.</p>
+<h2 id="infix-vs-prefix-functions"><a class="header" href="#infix-vs-prefix-functions">Infix vs Prefix Functions</a></h2>
+<p>We've actually been using functions without explicitly mentioning them. For example, the <code>*</code> symbol functions as a multiplier, taking two numbers and producing a result. When working with numbers, we call it by placing it <em>between</em> them, known as an <em>infix function</em>. Functions that don't involve numbers are generally used in a <em>prefix form</em>. </p>
+<pre><code>ghci &gt; 5 * 6 (infix function)
+30
+ghci&gt; succ 8 (prefix function)
+9
+</code></pre>
+<blockquote>
+<p>💡 Infix functions are placed <em>between</em> their parameters. For example, the <code>*</code> function takes 2 parameters which are placed between it like <code>5 * 6</code>; <code>5</code> and <code>6</code> are the parameters of <code>*</code> function.</p>
+</blockquote>
+<p>In Haskell, functions are called by writing the function name, followed by a space and then the parameters separated by spaces. </p>
+<pre><code class="language-haskell">func3 x y = x + y -- x and y are parameters of func3
+</code></pre>
+<p>Unlike most imperative languages, Haskell does not require parentheses for function calls. We'll now assume that functions are in the prefix form unless specified. Let's begin by calling one of the simplest functions in Haskell, which was shown in the example above:</p>
+<pre><code>ghci &gt; succ 8
+9
+</code></pre>
+<p>The <code>succ</code> function gives the next value in a sequence. To use it, we just put the function name and the parameter with a space. Calling functions with multiple parameters is easy. The <code>min</code> and <code>max</code> functions take two comparable things, like numbers, and return the smaller or larger one, respectively:</p>
+<pre><code>ghci &gt; min 9 10 
+9
+ghci &gt; min 3.4 3.2 
+3.2
+ghci &gt; max 100 101 
+101
+</code></pre>
+<p>Calling a function by putting a space after it and then typing out the parameters has the highest precedence. This means these two statements are the same:</p>
+<pre><code>ghci&gt; succ 9 + max 5 4 + 1 16
+ghci&gt; (succ 9) + (max 5 4) + 1 16
+</code></pre>
+<p>Using parenthesis will not change the precedence; it is good practice because it makes code more readable.</p>
+<p>However, to find the successor of the product of 9 and 10, we can't write <code>succ 9 * 10</code> because it would get the successor of 9 and then multiply by 10 (resulting in 100). Instead, we use parentheses: <code>succ (9 * 10)</code> to get 91.</p>
+<pre><code>ghci&gt; succ 9 * 10
+100
+ghci&gt; succ (9 * 10)
+91
+</code></pre>
+<p><strong>This is not a side-effect;</strong> recall that the <code>succ</code> function takes 1 parameter, and because calling a function has the highest precedence as previously mentioned, Haskell will evaluate <code>succ 9</code> before multiplication. This can be easily fixed by adding parenthesis since <code>(9 * 10)</code> will yield a <em>single</em> value, which can be input into the <code>succ</code> function.</p>
+<p>When a function has two parameters, we can call it as an infix function by using backticks. </p>
+<pre><code>ghci&gt; 9 `min` 10
+9
+ghci &gt; 3.4 `min` 3.2 
+3.2
+ghci &gt; 100 `max` 101 
+101
+</code></pre>
+<p>This is especially useful when you're using functions like <code>div</code>. The <code>div</code> function takes two integers and does integral division between them, so <code>div 92 10</code> would yield 9. However, it's confusing to determine which number is doing the division and which number is being divided. Instead if we type <code>92 `div` 10</code> it becomes much more clear which number is doing the division and which one is being divided (in this case 92 is being divided by 10).</p>
+<p>People from imperative languages often use parentheses for function application. In Python, it's common to see functions called like <code>foo()</code>, <code>bar(1)</code>, or <code>baz(3, &quot;haha&quot;)</code>. In Haskell, we use spaces for function application. So, in Haskell, it would be <code>foo</code>, <code>bar 1</code>, and <code>baz 3 &quot;haha&quot;</code>. When you see something like <code>bar (bar 3)</code>, it doesn't mean <code>bar</code> is called with <code>bar</code> and <code>3</code> as parameters. It means we first call the function <code>bar</code> with <code>3</code> as the parameter to get a number, and then we call <code>bar</code> again with that number. In Python, that would be something like <code>bar(bar(3))</code>.</p>
+<h2 id="exercises"><a class="header" href="#exercises">Exercises</a></h2>
+<ul>
+<li>
+<p>Create 2 functions called doubleMe1 and doubleMe2 that take an input and return its double.</p>
+</li>
+<li>
+<p>Create a function called doubleUs that take two inputs, doubles them, then adds them together. For example, <code>doubleUs 3 4</code> should yield 14.</p>
+</li>
+<li>
+<p>Create a function called nextUp that takes 2 values, performs integral division, and finds the successor. For example, <code>nextUp 10 5</code> should yield 3.</p>
+</li>
+</ul>
+<blockquote>
+<p>💡 Once you have loaded your file, you can run each function by calling it, like <code>nextUp 10 5</code></p>
+</blockquote>
+<p><a href="Introduction/./Solutions/04-Solutions">Solutions are posted here.</a> Verify and continue to <a href="Introduction/./05-If%20Statements">05-If Statements</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="if-statements"><a class="header" href="#if-statements">IF STATEMENTS</a></h1>
+<p>Let's create a function that multiplies a number by 2 <em>if</em> it's less than or equal to 100:</p>
+<pre><code class="language-haskell">doubleSmallNumber x = if x &gt; 100 then x else x*2
+</code></pre>
+<p>A new keyword, <code>then</code>; this is equivalent to the <code>:</code> at the end of <code>if</code>-statements in languages like Python:</p>
+<pre><code class="language-python">def doubleSmallNumber(num:int) -&gt; int:
+    if num &gt; 100:
+        return num
+    else:
+        return (num * 2)
+</code></pre>
+<p>Apart from the new <code>then</code> keyword, Haskell requires an <code>else</code> statement when an <code>if</code> statement is used.</p>
+<p>In Haskell, every piece of code, including conditions and functions, <strong>must give back a result.</strong> Unlike some other languages where you can skip steps in certain conditions, Haskell requires every expression to return something. In Haskell, the <code>if</code> statement is an expression too. An expression is just a piece of code that gives a value. For example, <code>5</code>, <code>4 + 8</code>, and <code>x + y</code> are all expressions because they produce a result. In Haskell, the <code>if</code> statement always returns something because the <code>else</code> part is obligatory, making it an expression as well.</p>
+<blockquote>
+<p>💡 <code>5</code> is an expression because it returns <code>5</code>, much like the <code>myVar = 1</code> function in <a href="Introduction/./02-Loading%20Modules">02-Loading Modules</a></p>
+</blockquote>
+<blockquote>
+<p>💡 Boolean values are valid return values; The <code>else</code> expression is executed once the <code>if</code> expression returns <code>False</code>. In other words, unlike in Python where you can <code>pass</code> an if statement, the if expression <strong>must</strong> return <code>False</code> for the <code>else</code> expression to run. The <code>if</code> expression runs when it returns <code>True</code>.</p>
+</blockquote>
+<p>If our intention was to increment each generated number in the previous function, we could have formulated its body in this manner:</p>
+<pre><code class="language-haskell">doubleSmallNumber’ x = (if x &gt; 100 then x else x*2) + 1
+</code></pre>
+<p>Remember that parenthesis are of higher precedence than expressions without them; the expression in the parenthesis is executed, which checks if the input <code>x</code> is greater than (<code>&gt;</code>) 100, else, multiply <code>x</code> by 2. The parenthesis produces a value, for example, 8 if <code>x = 4</code>, and then the expression <code>+ 1</code> is evaluated.</p>
+<blockquote>
+<p>💡 There is a much more efficient way of writing this function. Think back to <a href="Introduction/./04-Functions%20in%20Haskell">04-Functions in Haskell</a>. Could we use a function that produces the next value in a sequence (equivalent to <code>+ 1</code>)?</p>
+</blockquote>
+<p>If we excluded the parentheses, it would have added one only if <code>x</code> wasn't greater than 100. Pay attention to the apostrophe (<code>’</code>) at the end of the function name. In Haskell's syntax, this apostrophe doesn't have any special meaning; it's a valid character to include in a function name. Typically, we use the apostrophe to indicate either a strict version of a function (one that isn't lazy) or a slightly modified version of a function. Since the apostrophe is permitted in function names, we can create a function like this.</p>
+<pre><code class="language-haskell">conanO’Brien = &quot;It’s a-me, Conan O’Brien!&quot;
+</code></pre>
+<p>Do you see something off with this function name? Pay close attention to the first name (Conan); why is <code>C</code> not capitalized? English grammar tells us the first letter of anyone's name is always capitalized, so why have we purposely named the function <code>conanO’Brien</code> and not <code>ConanO’Brien</code>?</p>
+<p>That's because Haskell isn't your English teacher, it does not like functions with a leading capital character. So functions <strong>must</strong> be written with a lowercase first character.</p>
+<p>Back to if-statements, what if we wanted to code it on multiple lines like Python? Well, we can do this:</p>
+<pre><code class="language-haskell">doubleSmallNumber x = if x &gt; 100
+                      then x
+                      else x * 2
+</code></pre>
+<p><strong>Make good note of the indentation:</strong> Haskell relies on good indentation to define the structure of code blocks. This means the following indentations are <strong>incorrect:</strong></p>
+<pre><code class="language-haskell">doubleSmallNumber x = if x &gt; 100 
+                    then x
+                    else x*2
+</code></pre>
+<pre><code class="language-haskell">doubleSmallNumber x = if x &gt; 100 
+                        then x
+                        else x*2
+</code></pre>
+<p>The <code>if</code>, <code>then</code> and <code>else</code> keywords are all in-line. Don't worry, <em>many many many</em> Haskell devs make this mistake; sometimes re-reading code can help, but a minor indentation is always overlooked by us. You can use ChatGPT or other tools to help you fix your code indentation.</p>
+<p>To recap, the only unique feature Haskell brings to conditional statements is that they must have an <code>else</code> statement (formally known as an <em>expression</em> in Haskell) use a <code>then</code> keyword to evaluate the <code>if</code> expression, and the <code>if</code>, <code>then</code> and <code>else</code> keywords must be indented vertically.</p>
+<p>Next, <a href="Introduction/./06-Intro%20to%20Lists">06-Intro to Lists</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="intro-to-lists"><a class="header" href="#intro-to-lists">INTRO TO LISTS</a></h1>
+<p>Lists in Haskell are highly valuable, like shopping lists in real life. They serve as the most commonly used data structure, offering versatile solutions to various problems. This section covers fundamental aspects of lists, including <em>strings</em> (which are a <em>type</em> of list) and list comprehensions.</p>
+<p>In Haskell, lists are <strong>homogeneous,</strong> storing elements of the same type. You can have a list of integers or a list of characters, but mixing types, like having both integers and characters in one list, is not allowed.</p>
+<h2 id="let-statements"><a class="header" href="#let-statements">Let Statements</a></h2>
+<p>Before we begin, let's understand a new keyword we will be using a lot; <code>let</code>. In Haskell, a <code>let</code> statement is used to bind a name to a value within a specific scope. It allows you to create <em>local definitions</em> that are only valid within the block of code where the <code>let</code> statement is used. This helps in making code more modular and readable by restricting the scope of definitions to where they are actually needed.</p>
+<blockquote>
+<p>💡 In Haskell, a definition is a way of giving a name to a value or a function. It establishes an association between a name and an expression or a set of equations, specifying the value or behavior that the name represents. Definitions are crucial for clarity and reusability in Haskell code. These named entities can represent anything from simple values to complex functions.</p>
+</blockquote>
+<h2 id="lists"><a class="header" href="#lists">Lists</a></h2>
+<p><code>let</code>'s create a list:</p>
+<pre><code>ghci &gt; let lostNumbers = [4, 8, 15, 16, 23, 48] 
+ghci &gt; lostNumbers
+[4, 8, 15, 16, 23, 48]
+</code></pre>
+<p>Lists in Haskell are represented with square brackets, and their values are separated by commas. If we attempt a list like <code>[1,2,'a',3,'b','c',4]</code>, Haskell would raise an error since characters (indicated by single quotes) cannot mix with numbers. Speaking of characters, strings in Haskell are essentially lists of characters. For example, &quot;hello&quot; is equivalent to <code>['h','e','l','l','o']</code>. Since strings are lists, we can apply list functions to them, making it quite convenient.</p>
+<blockquote>
+<p>💡 <code>&quot; &quot;</code> are reserved for strings (a list of characters) where as <code>' '</code> are used for single characters (<code>'a'</code>, <code>'b'</code>). <code>&quot;a&quot;</code> will raise an error.</p>
+</blockquote>
+<h2 id="-and--operators"><a class="header" href="#-and--operators"><code>:</code> and <code>++</code> Operators</a></h2>
+<p>Now let's combine to lists together using the <code>++</code> operator:</p>
+<pre><code>ghci&gt; [1,2,3,4] ++ [9,10,11,12] 
+[1,2,3,4,9,10,11,12]
+ghci&gt; &quot;hello&quot; ++ &quot; &quot; ++ &quot;world&quot; 
+&quot;hello world&quot;
+ghci&gt; [’w’,’o’] ++ [’o’,’t’] 
+&quot;woot&quot;
+</code></pre>
+<p>Be cautious when repeatedly using the <code>++</code> operator on lengthy strings. When combining two lists, even appending a singleton list (<code>[1,2,3] ++ [4]</code>), Haskell internally traverses the entire left list. This is fine for smaller lists, but for a list with fifty million entries, it can be time-consuming. On the other hand, adding an element at the beginning of a list using the <code>:</code> operator (cons operator) is instantaneous.</p>
+<pre><code>ghci&gt; ’A’:&quot; SMALL CAT&quot; 
+&quot;A SMALL CAT&quot;
+ghci &gt; 5:[1 ,2 ,3 ,4 ,5] 
+[5,1,2,3,4,5]
+</code></pre>
+<blockquote>
+<p>💡 A singleton list is a list that contains only one element.</p>
+</blockquote>
+<p>Note that <code>:</code> combines a number with a list of numbers or a character with a list of characters, while <code>++</code> merges two lists. Even when appending an element to the end of a list with <code>++</code>, you need to enclose it in square brackets to form a list.</p>
+<p>For instance, <code>[1,2,3]</code> is essentially shorthand for <code>1:2:3:[]</code>. <code>[]</code> denotes an empty list. If we add 3 to it using <code>:</code>, it becomes <code>[3]</code>. Prepending 2 to that gives <code>[2,3]</code>, and the pattern continues.</p>
+<blockquote>
+<p>💡 <code>[]</code>, <code>[[]]</code>, and <code>[[],[],[]]</code> represent distinct entities. The first is an empty list, the second is a list containing one empty list, and the third is a list containing three empty lists.</p>
+</blockquote>
+<h2 id="indexing"><a class="header" href="#indexing">Indexing</a></h2>
+<p>To retrieve an element from a list by index, use the <code>!!</code> operator, where indices begin at 0.</p>
+<pre><code>ghci&gt; &quot;Steve Buscemi&quot; !! 6
+’B’
+ghci &gt; [9.4 ,33.2 ,96.2 ,11.2 ,23.25] !! 1
+33.2
+</code></pre>
+<blockquote>
+<p>💡 &quot;Out of bounds&quot; error exist in Haskell! If you try to get the sixth element from a list that only has four elements, you’ll get an error so be careful!</p>
+</blockquote>
+<p>Lists have the flexibility to encompass other lists, including lists within lists, forming nested structures.</p>
+<pre><code>ghci&gt; let b = [[1,2,3,4],[5,3,3,3],[1,2,2,3,4],[1,2,3]] 
+ghci&gt; b
+[[1,2,3,4],[5,3,3,3],[1,2,2,3,4],[1,2,3]] 
+ghci&gt; b ++ [[1,1,1,1]]
+[[1,2,3,4],[5,3,3,3],[1,2,2,3,4],[1,2,3],[1,1,1,1]] 
+ghci&gt; [6,6,6]:b
+[[6,6,6],[1,2,3,4],[5,3,3,3],[1,2,2,3,4],[1,2,3]] 
+ghci&gt; b !! 2
+[1,2,2,3,4]
+</code></pre>
+<p>Lists within a list may vary in length, but they must maintain uniformity in terms of data types. Similar to not having a list with both characters and numbers, you cannot construct a list containing both lists of characters and lists of numbers.</p>
+<pre><code>ghci&gt; let a = [[1,2,3], ['a','b','c']]
+&lt;interactive&gt;:1:11: error:
+    • No instance for (Num Char) arising from the literal ‘1’
+    • In the expression: 1
+      In the expression: [1, 2, 3]
+      In the expression: [[1, 2, 3], ['a', 'b', 'c']]
+</code></pre>
+<h2 id="comparing-lists"><a class="header" href="#comparing-lists">Comparing Lists</a></h2>
+<p>Lists are comparable if their elements are comparable. When using <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, and <code>&gt;=</code> for list comparison, it follows a lexicographical order. Initial comparisons focus on the <strong>heads</strong> of the lists. If they are equal, the comparison extends to the second elements, and so forth.</p>
+<pre><code>ghci&gt; [3,2,1] &gt; [2,1,0] 
+True
+ghci&gt; [3,2,1] &gt; [2,10,100] 
+True
+ghci&gt; [3,4,2] &gt; [3,4] 
+True
+ghci&gt; [3,4,2] &gt; [2,4] 
+True
+ghci&gt; [3,4,2] == [3,4,2] 
+True
+</code></pre>
+<h2 id="list-functions"><a class="header" href="#list-functions">List Functions</a></h2>
+<p>The <code>head</code> function accepts a list and yields its initial element, which is essentially the first element of the list.</p>
+<pre><code>ghci &gt; head [5, 4, 3, 2, 1]
+5
+</code></pre>
+<p><code>last</code> does the opposite since it returns the last element in the list (opposite to <code>head</code>).</p>
+<pre><code>ghci &gt; last [5, 4, 3, 2, 1]
+1 
+</code></pre>
+<p><code>tail</code> takes a list and returns everything except the <code>head</code>, so the first element of the list</p>
+<pre><code>ghci &gt; tail [5, 4, 3, 2, 1] 
+[4, 3, 2, 1]
+</code></pre>
+<blockquote>
+<p>💡 <code>head</code> returns the first element and cuts off the entire list after it, whereas <code>tail</code> cuts off the head and returns all elements after it</p>
+</blockquote>
+<p><code>init</code> takes a list and returns everything except its last element, so opposite of <code>tail</code>.</p>
+<pre><code>ghci &gt; init [5, 4, 3, 2, 1] 
+[5, 4, 3, 2]
+</code></pre>
+<p>Moving forward, when we refer to the head of a list, we are referring to the first element of the list at index 0.</p>
+<ul>
+<li>head of <code>[1,2,3,4]</code> is 1</li>
+<li>head of <code>[87, 62, 55, 22]</code> is 87</li>
+<li>head of <code>[22, 99, 66]</code> is 22</li>
+</ul>
+<p>When we refer to the tail of a list, we are referring to a list <em>without</em> the head</p>
+<ul>
+<li>tail of <code>[1,2,3,4]</code> is <code>[2,3,4]</code></li>
+<li>head of <code>[87, 62, 55, 22]</code> is <code>[62, 55, 22]</code></li>
+<li>head of <code>[22, 99, 66]</code> is <code>[99, 66]</code></li>
+</ul>
+<p>With that established, what do you think <code>ghci&gt;</code> will return if we do this?</p>
+<pre><code>ghci&gt; head (tail [1, 2, 3, 4, 5, 6, 7, 8, 9])
+</code></pre>
+<details open>
+  <summary>🔓 Click me to reveal the answer!</summary>
+  In programming and especially in Hasekell, breaking down the problem is crucial:
+<ul>
+<li>Haskell will evaluate the parenthesis first as a rule of precedence, therefore, <code>tail [1, 2, 3, 4, 5, 6, 7, 8, 9]</code> would be evaluated first</li>
+<li><code>tail</code> always returns a list <em>without</em> the head, and since the head is 1, the new list will be <code>[2, 3, 4, 5, 6, 7, 8, 9]</code></li>
+<li>Finally, Haskell will evaluate the outer <code>head</code> function on the new list, <code>[2, 3, 4, 5, 6, 7, 8, 9]</code></li>
+<li>The first element of that list is 2, therefore, <code>ghci&gt;</code> will return 2</li>
+</ul>
+<pre><code>ghci&gt; head (tail [1, 2, 3, 4, 5, 6, 7, 8, 9])
+2
+</code></pre>
+</details>
+<blockquote>
+<p>✍️ Try to get the head of an empty list <code>[]</code>; what does it return?</p>
+</blockquote>
+<p><em>more being added soon</em></p>
 
                     </main>
 

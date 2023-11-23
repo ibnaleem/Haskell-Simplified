@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - Haskell-Simplified</title>
-        <base href="/">
+        <title>Loading Modules - Haskell-Simplified</title>
 
 
         <!-- Custom HTML head -->
@@ -13,21 +12,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
@@ -36,7 +35,7 @@
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -89,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Homepage</a></li><li class="chapter-item expanded affix "><li class="part-title">Preface</li><li class="chapter-item expanded "><a href="Introduction/00-Preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded affix "><li class="part-title">Introduction</li><li class="chapter-item expanded "><a href="Introduction/01-Installing Haskell.html"><strong aria-hidden="true">2.</strong> Installing Haskell</a></li><li class="chapter-item expanded "><a href="Introduction/02-Loading Modules.html"><strong aria-hidden="true">3.</strong> Loading Modules</a></li><li class="chapter-item expanded "><a href="Introduction/03-Intro to Haskell.html"><strong aria-hidden="true">4.</strong> Intro to Haskell</a></li><li class="chapter-item expanded "><a href="Introduction/04-Functions in Haskell.html"><strong aria-hidden="true">5.</strong> Functions in Haskell</a></li><li class="chapter-item expanded "><a href="Introduction/05-If Statements.html"><strong aria-hidden="true">6.</strong> If Statements</a></li><li class="chapter-item expanded "><a href="Introduction/06-Intro to Lists.html"><strong aria-hidden="true">7.</strong> Intro to Lists</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Homepage</a></li><li class="chapter-item expanded affix "><li class="part-title">Preface</li><li class="chapter-item expanded "><a href="../Introduction/00-Preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded affix "><li class="part-title">Introduction</li><li class="chapter-item expanded "><a href="../Introduction/01-Installing Haskell.html"><strong aria-hidden="true">2.</strong> Installing Haskell</a></li><li class="chapter-item expanded "><a href="../Introduction/02-Loading Modules.html" class="active"><strong aria-hidden="true">3.</strong> Loading Modules</a></li><li class="chapter-item expanded "><a href="../Introduction/03-Intro to Haskell.html"><strong aria-hidden="true">4.</strong> Intro to Haskell</a></li><li class="chapter-item expanded "><a href="../Introduction/04-Functions in Haskell.html"><strong aria-hidden="true">5.</strong> Functions in Haskell</a></li><li class="chapter-item expanded "><a href="../Introduction/05-If Statements.html"><strong aria-hidden="true">6.</strong> If Statements</a></li><li class="chapter-item expanded "><a href="../Introduction/06-Intro to Lists.html"><strong aria-hidden="true">7.</strong> Intro to Lists</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -143,7 +142,7 @@
                     <h1 class="menu-title">Haskell-Simplified</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
 
@@ -172,14 +171,58 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <head>
+    <base href="https://ibnaleem.github.io/Haskell-Simplified/Introduction/" />
+</head>
+<h1 id="loading-modules"><a class="header" href="#loading-modules">LOADING MODULES</a></h1>
+<p>Now that Haskell has been successfully installed, we can create Haskell files and load them into the compiler (GHC).</p>
+<p>Start by creating a <code>hello.hs</code> file, open it with your favourite text editor and type the following:</p>
+<pre><code class="language-haskell">main = putStrLn &quot;Hello, Haskell!&quot;
+</code></pre>
+<p>To compile, make sure you are in the same directory as <code>hello.hs</code>, and run <code>ghc hello.hs</code> in your CLI:</p>
+<pre><code>&gt;&gt; ghc hello.hs
+[1 of 1] Compiling Main             ( hello.hs, hello.o )
+Linking hello ...
+</code></pre>
+<p>To run the our compiled program, we simply type <code>./hello</code> in our CLI, just like <code>C</code>!</p>
+<pre><code>./hello 
+Hello, Haskell!
+</code></pre>
+<p>Congrats, you've written your first Haskell code! Now let's disect what we wrote:</p>
+<ul>
+<li><code>main</code>: In Haskell, every program must have a <code>main</code> function, which is the entry point of the program. The <code>main</code> function is of type I/O, indicating that it performs <strong>i</strong>nput/<strong>o</strong>utput operations and <strong>does not return a value.</strong> Think of the <code>main</code> function like the <code>if __name__ == &quot;__main__&quot;:</code> in Python, <code>int main() {...}</code> in C, and <code>public static void main(String[] args) {...}</code> in Java. It will always run.
+<br></li>
+<li><code>putStrLn</code>: This is a function that takes a String (a sequence of characters, remember that as we'll discuss this in the Types chapter) and performs an I/O operation by printing the string to the console.
+<br></li>
+<li><code>&quot;Hello, Haskell!&quot;</code>: This is the string that was printed to the console. This is probably the only line of code you understood <em>before</em> the explanation if you've ever coded before.</li>
+</ul>
+<p>Notice that the <code>main</code> function was declared with <code>=</code> and some value to return. If you've coded in JavaScript, it is equivalent to a <code>const</code> function:</p>
+<pre><code class="language-javascript">const multiply = (a, b) =&gt; {
+    const result = a * b;
+    return result;
+};
+</code></pre>
+<p>This is because Haskell <strong>does not declare variables, only functions.</strong> </p>
+<p>🗣️ <em>But can't we do <code>myVar = 3</code></em>?</p>
+<p>Yes, but <code>myVar</code> would not be a variable <strong>but a function:</strong></p>
+<pre><code>ghci&gt; myVar = 1
+ghci&gt; myVar
+1
+</code></pre>
+<p><code>myVar</code> is a function because it returns a value, which in this case is just 1. </p>
+<p>To understand this further, let's dive into <a href="./03-Intro%20to%20Haskell">03-Intro to Haskell</a>.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Introduction/01-Installing Haskell.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
+                            <a rel="next prefetch" href="../Introduction/03-Intro to Haskell.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -187,7 +230,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Introduction/01-Installing Haskell.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
+                    <a rel="next prefetch" href="../Introduction/03-Intro to Haskell.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
@@ -216,13 +265,13 @@
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
 
